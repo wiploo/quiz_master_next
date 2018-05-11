@@ -259,7 +259,7 @@ class QSM_Questions {
 
 		$values = array(
 			'quiz_id'              => intval( $data['quiz_id'] ),
-			'question_name'        => trim( preg_replace( '/\s+/', ' ', htmlspecialchars( nl2br( wp_kses_post( $data['name'] ) ), ENT_QUOTES ) ) ),
+			'question_name'        => trim( preg_replace( '/\s+/', ' ', htmlspecialchars( nl2br( wp_kses_post( htmlentities($data['name'], ENT_QUOTES) ) ), ENT_QUOTES ) ) ),
 			'answer_array'         => serialize( $answers ),
 			'question_answer_info' => htmlspecialchars( $data['answer_info'], ENT_QUOTES ),
 			'comments'             => htmlspecialchars( $data['comments'], ENT_QUOTES ),
